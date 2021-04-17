@@ -31,6 +31,8 @@ GET: `https://brainjacked.herokuapp.com/humans/:chip_code` - zwraca czlowieka na
 
 ### Dla bazy users
 
+GET: `https://brainjacked.herokuapp.com/users` - zwraca wszyskich userów
+
 POST: `https://brainjacked.herokuapp.com/users/login` - logowanie, wymaga podania JSONA
 ```
 {
