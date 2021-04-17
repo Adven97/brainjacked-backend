@@ -34,12 +34,16 @@ router.get('/:chip_code', async (req, res) => {
     }
 });
 
-router.delete('/:chip_code', async (req, res) => {
+router.patch('/reset/:chip_code', async (req, res) => {
     try {
-        const removedUser = await User.remove({
-            _id: req.params.chip_code
+        const user = await User.updateOne({
+            chip_code: req.params.chip_code,
+        }, {
+            $set: {
+                "skills.emotion.value": "None"
+            }
         });
-        res.json(removedUser);
+        res.json(user);
     } catch (err) {
         res.json({
             message: err

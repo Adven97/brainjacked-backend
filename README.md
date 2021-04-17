@@ -64,3 +64,4 @@ PATCH: `https://brainjacked.herokuapp.com/users/emotion/:chip_code` - dodanie no
       "value": "Dopamine"
 }
 ```
+PATCH: `https://brainjacked.herokuapp.com/users/emotion/reset/:chip_code` - resetowanie emocji do "None" 
