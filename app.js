@@ -18,12 +18,12 @@ app.use('/users', userRoute);
 app.use('/humans', humanRoute);
 
 app.get('/', (req, res) => {
-    res.send('Brainjack, hijack your brain!')
+    res.send('Brainjack, hijack your brain! 1.1')
 })
 
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}, () => console.log('connected to Database '));
+}, () => console.log('connected to Database succesfully'));
 
 app.listen(port);
