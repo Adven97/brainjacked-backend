@@ -28,9 +28,10 @@ NIE UŻYWAĆ W APLIKACJI, NIE POZWALAM!
 GET: `https://brainjacked.herokuapp.com/humans/:chip_code` - zwraca czlowieka na podstawie chipu 
 (nwm czy chcemy ale jak cos to jest xd)
 
+
 ### Dla bazy users
 
-POST: `https://brainjacked.herokuapp.com/humans/login` - logowanie, wymaga podania JSONA
+POST: `https://brainjacked.herokuapp.com/users/login` - logowanie, wymaga podania JSONA
 ```
 {
       "chip_code": "qwerty4444", 
@@ -38,7 +39,7 @@ POST: `https://brainjacked.herokuapp.com/humans/login` - logowanie, wymaga podan
 }
 ```
 
-POST: `https://brainjacked.herokuapp.com/humans/register` - rejestracja, wymaga podania JSONA
+POST: `https://brainjacked.herokuapp.com/users/register` - rejestracja, wymaga podania JSONA
 
 ```
 {
@@ -46,8 +47,10 @@ POST: `https://brainjacked.herokuapp.com/humans/register` - rejestracja, wymaga 
       "last_name": "Shrek",
       "chip_code": "qwerty4444", 
       "password": "shrekislove",
-      "dominantHalf": "right",
-      "skills": {/* todo*/ },
+      "dominantHalf": "Right", //// dac enum do fronta ("Right" / "Left")
+      "skills":{
+          "emotion":{} // defaultowo jest "None" ale moze byc 1 z 5 wartosci: Dopamina, Serotonina itd.
+      }
 
 }
 ```

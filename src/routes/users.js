@@ -1,6 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/User');
+const User = require('../models/Users2');
+
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users)
+    } catch (err) {
+        res.json({
+            message: err
+        })
+    }
+})
 
 router.post('/login', async (req, res) => {
     User.findOne({
@@ -28,14 +39,14 @@ router.post('/register', async (req, res) => {
         last_name: req.body.last_name,
         chip_code: req.body.chip_code,
         password: req.body.password,
-        dominantHalf: req.body.dominantHalf
-        ///todo rest
+        dominantHalf: req.body.dominantHalf,
+        skills: req.body.skills,
     });
     user.setPassword(req.body.password);
 
     try {
-        const savedUser = await user.save();
-        res.json(savedUser)
+        const savedHuman = await user.save();
+        res.json(savedHuman)
     } catch (err) {
         res.json({
             message: err
@@ -43,9 +54,11 @@ router.post('/register', async (req, res) => {
     }
 });
 
-router.get('/:userId', async (req, res) => {
+router.get('/:chip_code', async (req, res) => {
     try {
-        const user = await User.findById(req.params.userId);
+        const user = await User.find({
+            chip_code: req.params.chip_code,
+        });
         res.json(user);
     } catch (err) {
         res.json({
