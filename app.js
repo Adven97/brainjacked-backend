@@ -18,7 +18,7 @@ app.use('/users', userRoute);
 app.use('/humans', humanRoute);
 
 app.get('/', (req, res) => {
-    res.send('Brainjack, hijack your brain! 1.1')
+    res.send('Brainjack, hijack your brain! 1.2')
 })
 
 mongoose.connect(url, {

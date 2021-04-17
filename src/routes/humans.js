@@ -13,6 +13,25 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.post('/login', async (req, res) => {
+    Human.findOne({
+        chip_code: req.body.chip_code
+    }, (err, usr) => {
+        if (usr === null) {
+            return res.status(400).send({
+                message: "User not found."
+            });
+        } else {
+            if (usr.validPassword(req.body.password)) {
+                return res.status(201).send(usr);
+            } else {
+                return res.status(400).send({
+                    message: "Wrong Password"
+                });
+            }
+        }
+    })
+});
 router.post('/register', async (req, res) => {
     const user = new Human({
         first_name: req.body.first_name,
@@ -20,6 +39,7 @@ router.post('/register', async (req, res) => {
         chip_code: req.body.chip_code,
         password: req.body.password,
     });
+    user.setPassword(req.body.password);
 
     try {
         const savedHuman = await user.save();
