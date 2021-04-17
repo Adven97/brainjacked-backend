@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/Users2');
 
+const emotionInfo = require('./skills/emotion');
+router.use('/emotion', emotionInfo);
+
 router.get('/', async (req, res) => {
     try {
         const users = await User.find();

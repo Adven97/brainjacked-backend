@@ -54,3 +54,13 @@ POST: `https://brainjacked.herokuapp.com/users/register` - rejestracja, wymaga p
 
 }
 ```
+
+#### users/emotion
+GET: `https://brainjacked.herokuapp.com/users/emotion/:chip_code` - odczytanie doladowanej emocji
+
+PATCH: `https://brainjacked.herokuapp.com/users/emotion/:chip_code` - dodanie nowej doladowanej emocji
+```
+{
+      "value": "Dopamine"
+}
+```
