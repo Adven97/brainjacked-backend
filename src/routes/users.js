@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 router.post('/login', async (req, res) => {
     User.findOne({
-        nick: req.body.nick
+        chip_code: req.body.chip_code
     }, (err, usr) => {
         if (usr === null) {
             return res.status(400).send({
