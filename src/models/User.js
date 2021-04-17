@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 
 const SkillsSchema = mongoose.Schema({
+    creativity: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 5
+    }
 
 })
 
@@ -32,8 +38,6 @@ const UsersSchema = mongoose.Schema({
         required: true
     },
     skills: SkillsSchema
-    ///TODO REST OF BRAIN RELATED DATA
-
 });
 
 UsersSchema.methods.setPassword = function (password) {

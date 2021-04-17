@@ -5,15 +5,17 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const userRoute = require('./src/routes/users');
-
 const url = process.env.DB_CONNECTION;
 const port = process.env.PORT;
+
+const userRoute = require('./src/routes/users');
+const humanRoute = require('./src/routes/humans');
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/users', userRoute);
+app.use('/humans', humanRoute);
 
 app.get('/', (req, res) => {
     res.send('Brainjack, hijack your brain!')
