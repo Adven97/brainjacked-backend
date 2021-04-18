@@ -42,6 +42,9 @@ const Users2Schema = mongoose.Schema({
     dominantHalf: {
         type: String
     },
+    personalityType: {
+        type: String
+    },
     skills: SkillsSchema
 
 });

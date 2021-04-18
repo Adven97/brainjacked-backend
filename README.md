@@ -44,16 +44,16 @@ POST: `https://brainjacked.herokuapp.com/users/login` - logowanie, wymaga podani
 POST: `https://brainjacked.herokuapp.com/users/register` - rejestracja, wymaga podania JSONA
 
 ```
-{
-      "first_name": "John",
-      "last_name": "Shrek",
-      "chip_code": "qwerty4444", 
-      "password": "shrekislove",
-      "dominantHalf": "Right", //// dac enum do fronta ("Right" / "Left")
+ {
+      "first_name": "Filip",
+      "last_name": "Fritzk",
+      "chip_code": "zayebisty97", 
+      "password": "zayebiscie",
+      "dominantHalf": "Right",
+      "personalityType": "ENFP",
       "skills":{
-          "emotion":{} // defaultowo jest "None" ale moze byc 1 z 5 wartosci: Dopamina, Serotonina itd.
+          "emotion":{}
       }
-
 }
 ```
 

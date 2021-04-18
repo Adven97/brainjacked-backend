@@ -43,6 +43,7 @@ router.post('/register', async (req, res) => {
         chip_code: req.body.chip_code,
         password: req.body.password,
         dominantHalf: req.body.dominantHalf,
+        personalityType: req.body.personalityType,
         skills: req.body.skills,
     });
     user.setPassword(req.body.password);
